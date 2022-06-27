@@ -3,7 +3,8 @@ __all__ = ['SupplierDomain']
 from datetime import datetime
 from typing import List
 
-from models.supplier import EditSupplierModel, InsertSupplierModel
+from models.supplier import EditSupplierModel
+from models.supplier import InsertSupplierModel
 from models.supplier import SupplierModel
 from repository.supplier import SupplierRepository
 
@@ -19,7 +20,7 @@ class SupplierDomain:
         """
         await self._repository.prepare()
 
-    async def insert(self, supplier: InsertSupplierModel) -> SupplierModel:
+    async def create(self, supplier: InsertSupplierModel) -> SupplierModel:
         """Insere um novo fornecedor no banco de dados.
 
         Args:

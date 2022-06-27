@@ -24,9 +24,9 @@ class InsertSupplierModel(BaseModel):
 
 class EditSupplierModel(BaseModel):
     id_: str = Field(alias='id', description='ID do fornecedor', min_length=16, max_length=16)
-    name: Optional[str] = Field(description='Nome do fornecedor')
-    company: Optional[str] = Field(description='Nome da empresa')
-    amount_products: Optional[int] = Field(description='Quantidade de produtos')
+    name: Optional[str] = Field(default=None, description='Nome do fornecedor')
+    company: Optional[str] = Field(default=None, description='Nome da empresa')
+    amount_products: Optional[int] = Field(default=None, description='Quantidade de produtos')
 
     class Config:
         schema_extra = {

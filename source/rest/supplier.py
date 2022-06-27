@@ -35,7 +35,7 @@ async def post_supplier(
         supplier: InsertSupplierModel,
         supplier_domain: SupplierDomain = Depends(get_supplier_domain),
 ) -> SupplierModel:
-    buffer = await supplier_domain.insert(supplier)
+    buffer = await supplier_domain.create(supplier)
     return buffer
 
 
