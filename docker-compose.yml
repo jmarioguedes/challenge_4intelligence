@@ -1,0 +1,28 @@
+version: '3.9'
+
+networks:
+  challenge:
+    driver: bridge
+
+services:
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - challenge
+
+  challenge:
+    build:
+      context: .
+    env_file: .env
+    environment:
+      - HTTP_PORT=${HTTP_PORT}
+    ports:
+      - ${HTTP_PORT}:${HTTP_PORT}
+    networks:
+      - challenge
+    depends_on:
+      - mongo
+

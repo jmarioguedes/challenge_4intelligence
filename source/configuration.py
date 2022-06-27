@@ -23,6 +23,11 @@ class _Settings(BaseSettings):
         description='Porta HTTP em que será disponibilizada a API REST'
     )
 
+    MONGO_URL: str = Field(
+        default='mongodb://localhost',
+        description='URL de conexão com o MongoDB'
+    )
+
 
 try:
     SETTINGS = _Settings()
