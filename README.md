@@ -4,21 +4,10 @@
 
 ✉ jmarioguedes@gmail.com
 
-👨🏻‍💻 
-
-
-
-
-
+---
 ![Diagrama](./assets/modelc4.png)
 
-
-
-## Executando o artefato ##
-
-
-
-
+---
 
 ## Acessando a API Rest ##
 
