@@ -1,23 +1,8 @@
 import pytest
 
-from mongomock_motor import AsyncMongoMockClient
-
-from adapters.supplier_mongo import SupplierRepositoryMongo
-from domains.supplier import SupplierDomain
-from models.supplier import EditSupplierModel, InsertSupplierModel, SupplierModel
-
-
-@pytest.fixture(scope='session')
-def database():
-    return AsyncMongoMockClient()['database']
-
-
-@pytest.fixture
-def supplier_domain(database):
-    repository = SupplierRepositoryMongo(database)
-    supplier_crud = SupplierDomain(repository)
-
-    return supplier_crud
+from models.supplier import EditSupplierModel
+from models.supplier import InsertSupplierModel
+from models.supplier import SupplierModel
 
 
 @pytest.mark.asyncio

@@ -16,10 +16,10 @@ app = FastAPI(
     on_startup=[startup]
 )
 
+app_api = FastAPI()
+
 
 def _load_api_rest():
-    app_api = FastAPI()
-
     directory_api_rest = join(dirname(realpath(__file__)), 'rest')
     for root, dirs, files in walk(directory_api_rest):
         for file in files:
