@@ -1,10 +1,12 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
+from pydantic import Field
 
 
 class InsertSupplierModel(BaseModel):
+    id_: str = Field(alias='id', description='ID do fornecedor', min_length=16, max_length=16)
     name: str = Field(description='Nome do fornecedor')
     company: str = Field(description='Nome da empresa')
     amount_products: int = Field(description='Quantidade de produtos')
@@ -12,6 +14,7 @@ class InsertSupplierModel(BaseModel):
     class Config:
         schema_extra = {
             'example': {
+                'id': 'BRCRD0028MG2ROML',
                 'name': 'João',
                 'company': '4intellingence',
                 'amount_products': 242,
@@ -20,6 +23,7 @@ class InsertSupplierModel(BaseModel):
 
 
 class EditSupplierModel(BaseModel):
+    id_: str = Field(alias='id', description='ID do fornecedor', min_length=16, max_length=16)
     name: Optional[str] = Field(description='Nome do fornecedor')
     company: Optional[str] = Field(description='Nome da empresa')
     amount_products: Optional[int] = Field(description='Quantidade de produtos')
@@ -27,7 +31,8 @@ class EditSupplierModel(BaseModel):
     class Config:
         schema_extra = {
             'example': {
-                'company': '4intellingence',
+                'id': 'BRCRD0028MG2ROML',
+                'name': 'Maria',
             }
         }
 
