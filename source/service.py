@@ -13,15 +13,24 @@ app = FastAPI(
     version='0.1.0',
 )
 
-directory_api_rest = join(dirname(realpath(__file__)), 'rest')
-for root, dirs, files in walk(directory_api_rest):
-    for file in files:
-        if file.endswith('.py'):
-            module = join(root, file)
 
-            LOGGER.debug('Carregando o módulo: %s', module)
+def _load_api_rest():
+    app_api = FastAPI()
 
-            buffer = run_path(module)
-            for _, value in buffer.items():
-                if isinstance(value, APIRouter):
-                    app.include_router(value)
+    directory_api_rest = join(dirname(realpath(__file__)), 'rest')
+    for root, dirs, files in walk(directory_api_rest):
+        for file in files:
+            if file.endswith('.py'):
+                module = join(root, file)
+
+                LOGGER.debug('Carregando o módulo: %s', module)
+
+                buffer = run_path(module)
+                for _, value in buffer.items():
+                    if isinstance(value, APIRouter):
+                        app_api.include_router(value)
+
+    app.mount('/api', app_api)
+
+
+_load_api_rest()
