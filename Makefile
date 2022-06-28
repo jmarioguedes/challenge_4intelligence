@@ -9,3 +9,6 @@ install:
 
 	# Instala as demais biblitecas necessárias para a execução dos testes unitários
 	@pip install -r requirements.dev --upgrade
+
+tests:
+	@pytest --cov=./source --cov-report html -p no:warnings

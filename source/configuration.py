@@ -24,7 +24,7 @@ class _Settings(BaseSettings):
     )
 
     MONGO_URL: str = Field(
-        default='mongodb://localhost',
+        default='mongodb://mongo',
         description='URL de conexão com o MongoDB'
     )
 
