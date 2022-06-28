@@ -19,9 +19,10 @@ Se posicione na raiz do repositório e execute a seguinte sequência de comandos
 
 ```shell
 python -m venv venv
+.\venv\Scripts\activate.ps1
 make install
 make tests
-./htmlcov/index.html
+open .\htmlcov\index.html
 ```
 
 ## Executando o artefato e o MongoDB em container ##

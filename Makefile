@@ -1,4 +1,4 @@
-.PHONY: install
+.PHONY: install, tests
 
 install:
 	# Instalando as diversas ferramenta de checagem e formatação
